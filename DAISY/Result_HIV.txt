@@ -1,0 +1,78 @@
+Loading image file: C:\Program Files\Reduce\bin\..\lib\psl\red\reduce.img
+Reduce (Free PSL version, revision 4859), 19-Jan-2019 ...
+
+1: LOAD DAISY$
+
+DAISY VERSION 2.0  04/01/2019
+
+COPYRIGHT UNIVERSITY OF CAGLIARI AND UNIVERSITY OF PADOVA
+
+ Authors: G. Bellu, M.P. Saccomani, S. Audoly and L. D'Angio'
+
+2: IN "C:\MOD\HIV.TXT"$
+
+Within-host model of HIV
+
+MODEL EQUATION(S)$
+
+c_ := {df(x1,t)= - (d*x1 - lambda1) - beta*x1*x4,
+df(x2,t)= - (delta + psi*x3)*x2 + beta*x1*x4,
+df(x3,t)= - (dz*x3 - lambdaz) + b*x2*x3,
+df(x4,t)= - c*x4 + pi*x2,
+y1=x1 + x2,
+y2=x3,
+y3=x4}$
+
+CHARACTERISTIC SET$
+
+aa_(1) := df(y1,t)*y2*b + df(y2,t)*y2*psi + df(y2,t)*( - d + delta) + y1*y2*b*d + y2**2*dz*psi + y2*( - b*
+lambda1 - d*dz + delta*dz - lambdaz*psi) + lambdaz*(d - delta)$
+
+aa_(2) := df(y1,t)*pi + df(y3,t)*y2*psi + df(y3,t)*( - d + delta) + y1*d*pi + y2*y3*c*psi + y3*c*( - d + delta
+) - lambda1*pi$
+
+aa_(3) :=  - df(y1,t)*y2*pi*psi - df(y1,t)*y3*beta*pi - df(y1,t)*pi*(c + delta) + df(y3,t,2)*y2*psi + df(y3,t,
+2)*( - d + delta) - y1*y2*y3*beta*pi*psi - y1*y2*d*pi*psi - y1*y3*beta*delta*pi - y1*d*pi*(c + delta) - y2*y3*
+c**2*psi + y2*lambda1*pi*psi + y3*(beta*lambda1*pi + c**2*d - c**2*delta) + lambda1*pi*(c + delta)$
+
+aa_(4) := df(y1,t) - x1*y2*psi + x1*(d - delta) + y1*y2*psi + y1*delta - lambda1$
+
+aa_(5) := df(y1,t) + x2*y2*psi + x2*( - d + delta) + y1*d - lambda1$
+
+aa_(6) :=  - x3 + y2$
+
+aa_(7) :=  - x4 + y3$
+
+MODEL ALGEBRAICALLY OBSERVABLE$
+
+PARAMETER VALUES$
+
+b2_ := {lambda1=2,
+beta=3,
+d=5,
+delta=7,
+psi=11,
+lambdaz=13,
+b=17,
+dz=19,
+pi=23,
+c=29}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+g_ := {{dz=19,
+lambdaz=13,
+beta=3,
+lambda1=2,
+b=17,
+d=5,
+delta=7,
+pi=23,
+psi=11,
+c=29}}$
+
+MODEL GLOBALLY IDENTIFIABLE$
+
+INITIAL CONDITION(S) WERE NOT NECESSARY$
+
+3: LOAD DAISY$

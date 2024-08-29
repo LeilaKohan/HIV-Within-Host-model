@@ -1,0 +1,38 @@
+WRITE "Within-host model of HIV"$
+
+% B_ IS THE VARIABLE VECTOR 
+B_:={y1,y2,y3,x1,x2,x3,X4}$
+
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={lambda1, beta, d, delta, psi, lambdaz, b, dz, pi, c}$
+
+%NUMBER OF STATES 
+NX_:=4$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF OUTPUTS 
+NY_:=3$
+
+%MODEL EQUATIONS
+C_:={df(x1,t)= lambda1 - beta*x4*x1 - d*x1,
+     df(x2,t)=beta*x4*x1 - delta*x2 - psi*x2*x3,
+     df(x3,t)=lamdaz + b*x2*x3 - dz*x3,
+     df(x4,t)=pi*x2 - c*x4,
+     y1=x1 + x2,
+     y2 = x3,
+     y3 = x4}$
+
+FLAG_:=1$
+% In case of FLAG=0 the user has to enter the numerical values of B1_ in the vector B2_ , for example:
+%FLAG_:=0$
+%B2_:={p1=1,p2=2,p3=3,p4=1,p5=2,p6=3,p7=2}$
+
+daisy()$
+
+%VALUES OF INITIAL CONDITIONS
+ICK_:={}$
+ICUNK_:={x1=x10,X2=x20,x3=x30,x4=x40}$
+CONDINIZ()$
+END$
